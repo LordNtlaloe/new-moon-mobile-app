@@ -5,7 +5,15 @@ export default function App() {
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
       <View style={styles.container}>
         <Text style={styles.title}>Sign In</Text>
-        <TextInput style={styles.input} placeholder='Email' placeholderTextColor={"#FFFFFF"} />
+        <TextInput 
+          autoFocus 
+          style={styles.input} 
+          placeholder='Email' 
+          placeholderTextColor={"#FFFFFF"} 
+          autoCapitalize='none'
+          keyboardType='email-address'
+          autoComplete='email'
+          />
         <TextInput style={styles.input} placeholder='Password' secureTextEntry placeholderTextColor={"#FFFFFF"} />
         <Pressable onPress={() => { console.log("Button Pressed") }} style={styles.button}>
           <Text style={styles.buttonText}>Sign In</Text>
