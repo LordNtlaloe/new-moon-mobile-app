@@ -1,15 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity,Pressable } from 'react-native';
+import { StyleSheet, Text, TextInput, View, KeyboardAvoidingView, Pressable, Platform } from 'react-native';
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Sign In</Text>
-      <TextInput style={styles.input} placeholder='Email' placeholderTextColor={"#FFFFFF"} />
-      <TextInput style={styles.input} placeholder='Password' secureTextEntry placeholderTextColor={"#FFFFFF"}/>
-        <Pressable onPress={() => {console.log("Button Pressed")}} style={styles.button}>
+    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Sign In</Text>
+        <TextInput style={styles.input} placeholder='Email' placeholderTextColor={"#FFFFFF"} />
+        <TextInput style={styles.input} placeholder='Password' secureTextEntry placeholderTextColor={"#FFFFFF"} />
+        <Pressable onPress={() => { console.log("Button Pressed") }} style={styles.button}>
           <Text style={styles.buttonText}>Sign In</Text>
         </Pressable>
-    </View>
+      </View>
+    </KeyboardAvoidingView>
+
   );
 }
 
